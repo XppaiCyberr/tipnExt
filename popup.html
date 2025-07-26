@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TipN - Settings</title>
+    <script src="ethers.js" type="application/javascript"></script>
+    <style>
+        body {
+            width: 400px;
+            min-height: 400px;
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .logo-container {
+            width: 55px;
+            height: 55px;
+            border-radius: 8px;
+            margin-right: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .header p {
+            margin: 0;
+            opacity: 0.8;
+            font-size: 12px;
+            color: #cccccc;
+        }
+        
+        .settings-section {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .settings-section h2 {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .input-group {
+            margin-bottom: 12px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            font-size: 12px;
+            color: #666666;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            background: #1a1a1a;
+            color: #ffffff;
+            font-size: 13px;
+            box-sizing: border-box;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+        
+        .input-group input::placeholder {
+            color: #666666;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 59, 48, 0.2);
+            border: 1px solid rgba(255, 59, 48, 0.3);
+            color: #ff6b6b;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 59, 48, 0.3);
+        }
+        
+        .success-message {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #4CAF50;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .info-section {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 12px;
+            color: #cccccc;
+        }
+        
+        .info-section h3 {
+            margin: 0 0 8px 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .info-section p {
+            margin: 4px 0;
+            line-height: 1.4;
+            color: #666666;
+        }
+        
+        .current-rpc-display {
+            padding: 8px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            font-size: 11px;
+            word-break: break-all;
+            color: #cccccc;
+            margin-top: 4px;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="img/popup.gif" alt="TipN Logo">
+        </div>
+        <div>
+            <h1>TipN Tracker</h1>
+            <p>Configure your default FID</p>
+        </div>
+    </div>
+    
+    <div class="settings-section">
+        <h2>Default FID</h2>
+        <div class="input-group">
+            <label for="defaultFidInput">Your Farcaster ID (FID):</label>
+            <input type="number" id="defaultFidInput" placeholder="Enter your FID (e.g., 822727)" min="1">
+        </div>
+        
+        <button class="btn" id="saveBtn">Save Default FID</button>
+        
+        <div class="success-message" id="successMessage">
+            Default FID saved successfully! The widget on Farcaster.xyz will now use this FID.
+        </div>
+    </div>
+    
+    <div class="settings-section">
+        <h2>RPC Configuration</h2>
+        <div class="input-group">
+            <label for="rpcUrlInput">Custom RPC URL (optional):</label>
+            <input type="url" id="rpcUrlInput" placeholder="https://base-mainnet.g.alchemy.com/v2/YOUR_API_KEY" pattern="https?://.+">
+        </div>
+        
+        <div class="input-group">
+            <label for="currentRpcDisplay">Current RPC:</label>
+            <div id="currentRpcDisplay" class="current-rpc-display">Loading...</div>
+        </div>
+        
+        <button class="btn" id="saveRpcBtn">Save RPC URL</button>
+        <button class="btn btn-secondary" id="resetRpcBtn" style="margin-top: 8px;">Reset to Default</button>
+        
+        <div class="success-message" id="rpcSuccessMessage">
+            RPC URL saved successfully! The widget will use your custom RPC endpoint.
+        </div>
+    </div>
+    
+    <div class="info-section">
+        <h3>How it works:</h3>
+        <p>• Set your default FID here</p>
+        <p>• Configure a custom RPC URL for better performance</p>
+        <p>• Visit Farcaster.xyz to see your TipN widget</p>
+        <p>• Click the refresh button to update your data</p>
+        <p>• Your settings will be remembered across sessions</p>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html> 
