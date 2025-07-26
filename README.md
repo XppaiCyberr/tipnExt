@@ -5,7 +5,7 @@ A Chrome extension that allows you to track your $TIPN allocations and earnings 
 ## Screenshot
 <img width="1136" height="300" alt="{8E613D6D-F634-40C1-9F67-B7A86BFB60B9}" src="https://github.com/user-attachments/assets/d8225474-f2c8-4a9a-9998-0430d32f8fdf" />
 
-### Popup setting
+### Popup settings
 <img width="464" height="611" alt="{B434D112-43D9-4178-96FB-9520E7B1573A}" src="https://github.com/user-attachments/assets/4fa764e2-2e30-4564-bfbd-b89d08975393" />
 
 
