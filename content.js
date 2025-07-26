@@ -1,6 +1,3 @@
-// Content script for TipN Chrome extension
-// This script injects TipN results into the Farcaster.xyz sidebar
-
 console.log('TipN content script loaded');
 
 // Smart contract ABI (same as popup.js)
@@ -360,7 +357,7 @@ function createTipNWidget() {
           margin-bottom: 12px;
           padding-bottom: 8px;
           border-bottom: 1px solid #2a2a2a;
-        ">Results</div>
+        "></div>
         <div id="tipn-result-content" style="
           font-size: 13px; 
           line-height: 1.5;
@@ -662,10 +659,6 @@ function injectTipNWidget() {
       `;
       results.style.display = 'block';
     }
-    
-    // Event listeners
-    // The input.addEventListener('keypress', ...) and button.addEventListener('click', lookupFid)
-    // are removed as per the new widget structure.
     
     console.log('TipN widget injected successfully');
   } else {
