@@ -120,7 +120,7 @@ const CONTRACT_ABI = [
 
 // Configuration
 const DEFAULT_RPC_URL = 'https://base.llamarpc.com';
-const CONTRACT_ADDRESS = '0x1aABa4E64d9F1363A0ebD87cee2622e7782D6e60';
+const CONTRACT_ADDRESS = '0xaD4Dc4712523B0180da5139Ad11C3FDDc6d7Cf06';
 
 // Initialize ethers provider and contract
 let provider, contract;
@@ -311,7 +311,7 @@ function createTipNWidget() {
                  alt="TipN Logo" 
                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
           </div>
-          <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #ffffff;">TipN Tracker</h3>
+          <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #ffffff;">TIPN x BETR | Season 2</h3>
         </div>
         <button id="tipn-refresh-btn" style="
           width: 32px;

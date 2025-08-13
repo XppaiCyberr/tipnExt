@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "TipN - $TIPN Tracker",
-  "version": "1.7",
-  "description": "Fetch $TIPN data for your Farcaster account",
+  "name": "TipN - $TIPN x $BETR Tracker",
+  "version": "1.81",
+  "description": "Fetch $BETR data for your Farcaster account",
   "author": "XppaiCyber",
   "icons": {
     "128": "icons/favicon.png"
